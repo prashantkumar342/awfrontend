@@ -32,7 +32,7 @@ export const createCourse = createAsyncThunk(
         formData.append("upload_preset", "chatty_avatar_preset");
 
         const uploadResponse = await axios.post(
-          `${import.meta.env.VITE_BASE_URL}/courses/createCourse`,
+          `${import.meta.env.VITE_CLOUDINARY_URL}`,
           formData
         );
         thumbnailUrl = uploadResponse.data.secure_url;
@@ -40,7 +40,7 @@ export const createCourse = createAsyncThunk(
 
       // Create course with the processed thumbnail URL
       const response = await axios.post(
-        import.meta.env.VITE_CREATE_COURSE,
+        `${import.meta.env.VITE_BASE_URL}/courses/createCourse`,
         {
           courseName,
           courseDescription,
@@ -71,7 +71,7 @@ const createCourseSlice = createSlice({
     error: null,
     success: null,
     status: null,
-    course: null, // Optional field to store course data
+    course: null,
   },
   reducers: {
     clearCourseState: (state) => {
@@ -79,7 +79,7 @@ const createCourseSlice = createSlice({
       state.error = null;
       state.success = null;
       state.status = null;
-      state.course = null;
+      state.course = null; // Clear course data
     },
   },
   extraReducers: (builder) => {

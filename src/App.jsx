@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { validateUser } from "./redux/api/authUserSlice.js";
 import { useEffect } from "react";
 import Admin from "./components/Admin/Admin.jsx";
-import Stepper from "./components/Form/Stepper.jsx";
 import AdminHome from "./components/Admin/AdminHome.jsx";
 import Courses from "./components/Admin/Courses.jsx";
 import CoursesList from "./components/Admin/CoursesList.jsx";
 import Drafts from "./components/Admin/Drafts.jsx";
 import Published from "./components/Admin/Published.jsx";
+import CourseBuilderStepper from "./components/Form/CourseBuilderStepper.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ function App() {
           <Route index element={<AdminHome />} />
           <Route path="course" element={<Courses />}>
             <Route index element={<CoursesList />} />
-            <Route path="create" element={<Stepper />} />
+            <Route path="create" element={<CourseBuilderStepper />} />
             <Route path="draft" element={<Drafts />} />
             <Route path="published" element={<Published />} />
 
@@ -55,6 +55,7 @@ function App() {
         {/* <Route path='*' element={<Navigate to="/login" />} /> */}
       </Routes>
       <PWABadge />
+
     </div>
   );
 }

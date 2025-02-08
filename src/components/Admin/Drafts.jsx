@@ -13,6 +13,9 @@ function Drafts() {
 
   useEffect(() => {
     dispatch(getDraftCourses());
+    if (draftCourses) {
+      console.log(draftCourses.courseId)
+    }
   }, [dispatch]);
 
   return (

@@ -8,6 +8,10 @@ import createCourseSlice from "./api/createCourseSlice"; // Import the createCou
 import getCategorySlice from "./api/getCategorySlice";
 import getDraftCourses from "./api/getDraftCourseSlice";
 import getPublishedCourses from "./api/getPublishedCourseSlice";
+import courseBuilderSlice from "./api/courseBuilderSlice"
+import createSection from "./api/createSection";
+import createSubSection from "./api/createSubSection";
+import publishCourse from "./api/publishCourse";
 
 export const reduxStore = configureStore({
   reducer: {
@@ -20,5 +24,9 @@ export const reduxStore = configureStore({
     getCategory: getCategorySlice,
     draftCourses: getDraftCourses,
     publishedCourses: getPublishedCourses,
+    courseBuilder: courseBuilderSlice,
+    createSection: createSection,
+    createSubSection: createSubSection,
+    publishCourse: publishCourse
   }
 });

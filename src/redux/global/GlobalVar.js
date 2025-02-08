@@ -6,7 +6,6 @@ const initialState = {
   courseCreation: {
     creation: false,
     creationStep: null,
-    courseId: null,
   },
 };
 
@@ -17,15 +16,7 @@ export const GlobalVarSlice = createSlice({
     setOtpInput(state, action) {
       state.otpInput = action.payload;
     },
-    setCourseCreation(state, action) {
-      state.courseCreation.creation = action.payload;
-    },
-    setCourseCreationStep(state, action) {
-      state.courseCreation.creationStep = action.payload;
-    },
-    setCourseId(state, action) {
-      state.courseCreation.courseId = action.payload;
-    },
+
   },
 });
 
